@@ -1,0 +1,43 @@
+<head>
+  <title>Edit and Add to Song Database</title>
+</head>
+
+<body>
+	<h1>Edit and Add to Song Database</h1>
+	
+	{{> addSongForm}}
+	
+	{{> songList}}
+
+</body>
+
+<template name="noteList">
+	
+</template>
+
+<template name="songList">
+	<h2>Notes</h2>
+	<ul>
+		{{#each note}}
+		<li class="note">{{name}}</li>
+		{{/each}}
+	</ul>
+	<h2>Songs</h2>
+	<ul>
+		{{#each song}}
+		<li class="song {{selected}}">"{{title}}" {{notes}}</li>
+		{{/each}}
+	</ul>
+	<button id="clearNotes">Clear Song Notes</button>
+	<button id="removeSong">Remove Song</button>
+</template>
+
+
+
+<template name="addSongForm">
+	<form>
+		<label for="songName">Song Name:</label>
+		<input type="text" name="songName" id="songName" /> 
+		<input type="submit" name="Submit" id="submitSong" />
+	</form>
+</template>
